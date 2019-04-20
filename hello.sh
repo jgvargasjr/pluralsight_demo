@@ -9,11 +9,14 @@ input=junk
 ## Main code body ###
 #####################
 
-printf "Hello "$name", what would you like to do?"
+spacing="\n-----------------------------------"
+
+printf "$spacing\nHello "$name", what would you like to do?"
 
 while [ $input != 'q'  ];
 do
-	printf "\n-----------------------------------\nSelect from the following -----------\n1.) List kernel version\n2.) Show firewall status\n3.) Create script template\n4.) Backup config files\n5.)List users "
+
+	printf "$spacing\nSelect from the following ---------\n1.) List kernel version\n2.) Show firewall status\n3.) Create script template\n4.) Backup config files\n5.)List users\n6.) List groups $spacing"
 	
 	printf "Type: 'h' for help and 'q' to quit\n"
 	
@@ -35,6 +38,9 @@ do
 	elif [ $input == 5 ]
 	then
 		display_users
+	elif [ $input == 6 ]
+	then
+		display_groups
 	else
 		printf "Invalid selection, try again\n"
 	fi

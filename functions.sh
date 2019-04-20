@@ -1,12 +1,15 @@
 #!/bin/bash
 
 declare -r PASSWD_FILE=/etc/passwd
+declare -r GROUP_FILE=/etc/group
 user=$(whoami)
 input=junk
 
 function display_groups()
 {
-	break	
+	while IFS= read -r line ; do
+		echo $line
+	done < $GROUP_FILE	
 }
 
 function display_users()
@@ -22,7 +25,8 @@ function display_users()
 
 function kernel_version()
 {
-	echo $(uname -r)
+	#echo $(uname -r)
+	uname -r
 }
 function system_status()
 {
